@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { User } from "app/user";
+import { UserService } from "app/user.service";
 @Component({
   selector: 'app-table-user',
   templateUrl: './table-user.component.html',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableUserComponent implements OnInit {
 
-  constructor() { }
+  users: User[];
 
-  ngOnInit() {
+  constructor(private service: UserService) {
+  
+  }
+
+  ngOnInit(): void {
+    this.users = this.service.getUsers();
   }
 
 }

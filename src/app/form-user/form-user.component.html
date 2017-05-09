@@ -1,3 +1,6 @@
-<p>
-  form-user works!
-</p>
+<form>
+  Nome: <input type="text" [(ngModel)]="user.name" name="name"><br>
+  Email: <input type="email" [(ngModel)]="user.email" name="email"><br>
+  Username: <input type="text" [(ngModel)]="user.username" name="username"><br>
+  <input type="submit" value="Enviar" (click)="onSubmit()" >
+</form>

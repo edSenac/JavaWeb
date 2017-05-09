@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from "app/user.service";
+import { User } from "app/user";
 
 @Component({
   selector: 'app-form-user',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormUserComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+
+  constructor(private service: UserService) { }
 
   ngOnInit() {
+    this.user = new User();   
   }
 
+   onSubmit(){
+     this.service.addUser(this.user);
+     this.user = new User();
+
+   }
 }
+
+
